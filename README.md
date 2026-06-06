@@ -49,4 +49,4 @@ Capture screenshots, reports, sample data, and observations.
 ### Phase 6 – Documentation
 Document learnings, findings, limitations, and future improvements.
 
-This repository prioritizes understanding the foundations behind security concepts before implementing solutions.
+#### NOTE: This repository prioritizes understanding the foundations behind security concepts before implementing solutions.
