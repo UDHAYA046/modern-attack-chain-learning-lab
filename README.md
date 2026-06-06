@@ -26,3 +26,27 @@ The goal is to understand:
 | 3 | Cloud Security | S3 Bucket Misconfiguration Scanner & Data Exposure Detection |
 | 4 | Web Security | JWT Authentication Bypass & Algorithm Confusion Attack |
 | 5 | Cryptography | TLS Certificate Pinning Bypass & MitM Attack |
+
+## Learning Methodology
+
+Each lab in this repository follows the same structured approach:
+
+### Phase 1 – Foundations
+Understand the technology, architecture, terminology, attack vectors, and defensive concepts.
+
+### Phase 2 – Threat Analysis
+Study the problem statement, threat model, real-world examples, impact, and MITRE ATT&CK mapping.
+
+### Phase 3 – Design
+Define objectives, architecture, features, scope, and limitations before implementation.
+
+### Phase 4 – Implementation
+Build a safe educational proof-of-concept or analysis tool.
+
+### Phase 5 – Evidence Collection
+Capture screenshots, reports, sample data, and observations.
+
+### Phase 6 – Documentation
+Document learnings, findings, limitations, and future improvements.
+
+This repository prioritizes understanding the foundations behind security concepts before implementing solutions.
