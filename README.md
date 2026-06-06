@@ -21,11 +21,11 @@ The goal is to understand:
 
 | Stage | Domain | Problem Statement |
 |---|---|---|
-| 1 | Identity | OAuth 2.0 Token Hijacking & Scope Abuse Detection |
-| 2 | Network Security | DNS Tunnelling Detection Engine |
-| 3 | Cloud Security | S3 Bucket Misconfiguration Scanner & Data Exposure Detection |
-| 4 | Web Security | JWT Authentication Bypass & Algorithm Confusion Attack |
-| 5 | Cryptography | TLS Certificate Pinning Bypass & MitM Attack |
+| 1 | Identity | OAuth 2.0 Token Hijacking & Scope Abuse Detection (#2) |
+| 2 | Network Security | DNS Tunnelling Detection Engine (#6) |
+| 3 | Cloud Security | S3 Bucket Misconfiguration Scanner & Data Exposure Detection (#12) |
+| 4 | Web Security | JWT Authentication Bypass & Algorithm Confusion Attack (#17) |
+| 5 | Cryptography | TLS Certificate Pinning Bypass & MitM Attack (#31) |
 
 ## Learning Methodology
 
