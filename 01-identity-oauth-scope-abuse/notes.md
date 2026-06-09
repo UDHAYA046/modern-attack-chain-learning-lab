@@ -638,6 +638,86 @@ before granting access.
 | Token Hijacking | Theft and misuse of access tokens |
 
 ---
+# Problem Statement Analysis
+
+## Statement 1
+
+### "A SaaS platform uses OAuth 2.0 for third-party app integrations."
+
+This sentence describes the environment in which the attack takes place.
+
+### What is SaaS?
+
+SaaS (Software as a Service) refers to software applications that are delivered over the internet rather than installed and managed locally.
+
+Examples:
+
+* Google Docs
+* Canva
+* Slack
+* Zoom
+* Notion
+* GitHub
+
+Users simply access these services through a browser or application without managing the underlying infrastructure.
+
+### What is a SaaS Platform?
+
+A SaaS platform is a company or service that provides software functionality through the internet.
+
+Examples:
+
+* Canva
+* Notion
+* Microsoft 365
+* Slack
+
+### What are Third-Party App Integrations?
+
+Third-party integrations allow external applications to connect with a platform and access specific resources on behalf of users.
+
+Examples:
+
+* Canva using Google Login
+* Slack connecting to Google Calendar
+* Notion connecting to GitHub
+* Zoom connecting to Microsoft 365
+
+These integrations allow users to share data between services without repeatedly entering credentials.
+
+### Why OAuth 2.0 Is Used
+
+OAuth 2.0 enables these integrations without exposing user passwords.
+
+Instead of sharing credentials, users grant permission and the application receives an Access Token.
+
+This provides:
+
+* Better security
+* Controlled access
+* Permission-based authorization
+* Easier integration between services
+
+### Simplified Interpretation
+
+The statement means that an online software platform allows external applications to connect to user accounts using OAuth 2.0 tokens rather than requiring users to share their passwords.
+
+### Security Perspective
+
+At this stage, nothing malicious has happened.
+
+This sentence only establishes the environment:
+
+* SaaS Platform
+* OAuth 2.0
+* Third-Party Applications
+* User Accounts
+* Access Tokens
+
+The attack has not yet begun.
+
+The next sentence introduces the attacker and the actual abuse scenario.
+
 
 # Current Understanding of the Hackathon Problem
 
