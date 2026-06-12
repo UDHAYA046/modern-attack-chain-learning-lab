@@ -1,0 +1,37 @@
+[
+  {
+    "app_name": "Profile Viewer",
+    "scopes": ["email", "profile"],
+    "token_type": "Bearer",
+    "token_expiry": "short-lived",
+    "last_used": "2026-06-10"
+  },
+  {
+    "app_name": "Calendar Helper",
+    "scopes": ["email", "profile", "calendar.read"],
+    "token_type": "Bearer",
+    "token_expiry": "short-lived",
+    "last_used": "2026-06-09"
+  },
+  {
+    "app_name": "Contact Sync Tool",
+    "scopes": ["email", "profile", "contacts.read"],
+    "token_type": "Bearer",
+    "token_expiry": "short-lived",
+    "last_used": "2026-06-08"
+  },
+  {
+    "app_name": "Productivity Assistant",
+    "scopes": ["email", "profile", "mail.readwrite", "offline_access"],
+    "token_type": "Bearer",
+    "token_expiry": "long-lived",
+    "last_used": "2026-06-10"
+  },
+  {
+    "app_name": "Unknown Mail Utility",
+    "scopes": ["mail.read", "contacts.read", "offline_access"],
+    "token_type": "Bearer",
+    "token_expiry": "long-lived",
+    "last_used": "2026-06-07"
+  }
+]
