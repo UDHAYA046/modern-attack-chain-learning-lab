@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OAuth Risk Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f7f9fc;
+        }
+        h1 {
+            color: #1f2937;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #111827;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>OAuth Scope Abuse Risk Dashboard</h1>
+    <p>This report analyzes simulated OAuth-connected applications for risky scopes, dangerous scope combinations, and long-lived token exposure.</p>
+
+    <table>
+        <tr>
+            <th>Application</th>
+            <th>Risk Score</th>
+            <th>Risk Level</th>
+            <th>Dangerous Scopes</th>
+            <th>Findings</th>
+            <th>Recommendations</th>
+        </tr>
+        
+        <tr>
+            <td>Profile Viewer</td>
+            <td>2</td>
+            <td>Low</td>
+            <td>None</td>
+            <td>No major findings</td>
+            <td>No action required</td>
+        </tr>
+        
+        <tr>
+            <td>Calendar Helper</td>
+            <td>5</td>
+            <td>Medium</td>
+            <td>None</td>
+            <td>No major findings</td>
+            <td>No action required</td>
+        </tr>
+        
+        <tr>
+            <td>Contact Sync Tool</td>
+            <td>5</td>
+            <td>Medium</td>
+            <td>contacts.read</td>
+            <td>Dangerous scopes detected: contacts.read</td>
+            <td>Limit contact access unless strictly required.</td>
+        </tr>
+        
+        <tr>
+            <td>Productivity Assistant</td>
+            <td>25</td>
+            <td>Critical</td>
+            <td>mail.readwrite, offline_access</td>
+            <td>Dangerous scopes detected: mail.readwrite, offline_access<br>Application has email write access combined with persistent offline access.<br>Application uses long-lived tokens, increasing risk if tokens are stolen.</td>
+            <td>Replace mail.readwrite with least-privilege read-only access or revoke it.<br>Remove offline_access unless long-term access is required.<br>Review dangerous scope combinations and apply least privilege.<br>Use short-lived access tokens and token rotation.</td>
+        </tr>
+        
+        <tr>
+            <td>Unknown Mail Utility</td>
+            <td>21</td>
+            <td>Critical</td>
+            <td>mail.read, contacts.read, offline_access</td>
+            <td>Dangerous scopes detected: mail.read, contacts.read, offline_access<br>Application can read contacts and maintain long-term access.<br>Application uses long-lived tokens, increasing risk if tokens are stolen.</td>
+            <td>Review whether email read access is required.<br>Limit contact access unless strictly required.<br>Remove offline_access unless long-term access is required.<br>Review dangerous scope combinations and apply least privilege.<br>Use short-lived access tokens and token rotation.</td>
+        </tr>
+        
+        <tr>
+            <td>Trusted Calendar Viewer</td>
+            <td>5</td>
+            <td>Medium</td>
+            <td>None</td>
+            <td>No major findings</td>
+            <td>No action required</td>
+        </tr>
+        
+        <tr>
+            <td>Free Productivity Booster</td>
+            <td>32</td>
+            <td>Critical</td>
+            <td>mail.readwrite, contacts.read, offline_access</td>
+            <td>Dangerous scopes detected: mail.readwrite, contacts.read, offline_access<br>Application has email write access combined with persistent offline access.<br>Application can read contacts and maintain long-term access.<br>Application uses long-lived tokens, increasing risk if tokens are stolen.</td>
+            <td>Replace mail.readwrite with least-privilege read-only access or revoke it.<br>Limit contact access unless strictly required.<br>Remove offline_access unless long-term access is required.<br>Review dangerous scope combinations and apply least privilege.<br>Use short-lived access tokens and token rotation.</td>
+        </tr>
+        
+    </table>
+</body>
+</html>

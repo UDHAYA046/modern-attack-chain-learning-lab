@@ -1,0 +1,8 @@
+Application Name,Risk Score,Risk Level,Dangerous Scopes,Findings
+Profile Viewer,2,Low,,
+Calendar Helper,5,Medium,,
+Contact Sync Tool,5,Medium,contacts.read,Dangerous scopes detected: contacts.read
+Productivity Assistant,25,Critical,"mail.readwrite, offline_access","Dangerous scopes detected: mail.readwrite, offline_access | Application has email write access combined with persistent offline access. | Application uses long-lived tokens, increasing risk if tokens are stolen."
+Unknown Mail Utility,21,Critical,"mail.read, contacts.read, offline_access","Dangerous scopes detected: mail.read, contacts.read, offline_access | Application can read contacts and maintain long-term access. | Application uses long-lived tokens, increasing risk if tokens are stolen."
+Trusted Calendar Viewer,5,Medium,,
+Free Productivity Booster,32,Critical,"mail.readwrite, contacts.read, offline_access","Dangerous scopes detected: mail.readwrite, contacts.read, offline_access | Application has email write access combined with persistent offline access. | Application can read contacts and maintain long-term access. | Application uses long-lived tokens, increasing risk if tokens are stolen."

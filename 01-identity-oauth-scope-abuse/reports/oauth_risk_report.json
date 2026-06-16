@@ -1,24 +1,46 @@
 [
     {
         "app_name": "Profile Viewer",
+        "redirect_uri": "Not Provided",
+        "scopes": [
+            "email",
+            "profile"
+        ],
         "risk_score": 2,
         "risk_level": "Low",
         "dangerous_scopes": [],
+        "findings": [],
         "recommendations": []
     },
     {
         "app_name": "Calendar Helper",
+        "redirect_uri": "Not Provided",
+        "scopes": [
+            "email",
+            "profile",
+            "calendar.read"
+        ],
         "risk_score": 5,
         "risk_level": "Medium",
         "dangerous_scopes": [],
+        "findings": [],
         "recommendations": []
     },
     {
         "app_name": "Contact Sync Tool",
+        "redirect_uri": "Not Provided",
+        "scopes": [
+            "email",
+            "profile",
+            "contacts.read"
+        ],
         "risk_score": 5,
         "risk_level": "Medium",
         "dangerous_scopes": [
             "contacts.read"
+        ],
+        "findings": [
+            "Dangerous scopes detected: contacts.read"
         ],
         "recommendations": [
             "Limit contact access unless strictly required."
@@ -26,30 +48,102 @@
     },
     {
         "app_name": "Productivity Assistant",
-        "risk_score": 16,
+        "redirect_uri": "Not Provided",
+        "scopes": [
+            "email",
+            "profile",
+            "mail.readwrite",
+            "offline_access"
+        ],
+        "risk_score": 25,
         "risk_level": "Critical",
         "dangerous_scopes": [
             "mail.readwrite",
             "offline_access"
         ],
+        "findings": [
+            "Dangerous scopes detected: mail.readwrite, offline_access",
+            "Application has email write access combined with persistent offline access.",
+            "Application uses long-lived tokens, increasing risk if tokens are stolen."
+        ],
         "recommendations": [
             "Replace mail.readwrite with least-privilege read-only access or revoke it.",
-            "Remove offline_access unless long-term access is required."
+            "Remove offline_access unless long-term access is required.",
+            "Review dangerous scope combinations and apply least privilege.",
+            "Use short-lived access tokens and token rotation."
         ]
     },
     {
         "app_name": "Unknown Mail Utility",
-        "risk_score": 14,
+        "redirect_uri": "Not Provided",
+        "scopes": [
+            "mail.read",
+            "contacts.read",
+            "offline_access"
+        ],
+        "risk_score": 21,
         "risk_level": "Critical",
         "dangerous_scopes": [
             "mail.read",
             "contacts.read",
             "offline_access"
         ],
+        "findings": [
+            "Dangerous scopes detected: mail.read, contacts.read, offline_access",
+            "Application can read contacts and maintain long-term access.",
+            "Application uses long-lived tokens, increasing risk if tokens are stolen."
+        ],
         "recommendations": [
             "Review whether email read access is required.",
             "Limit contact access unless strictly required.",
-            "Remove offline_access unless long-term access is required."
+            "Remove offline_access unless long-term access is required.",
+            "Review dangerous scope combinations and apply least privilege.",
+            "Use short-lived access tokens and token rotation."
+        ]
+    },
+    {
+        "app_name": "Trusted Calendar Viewer",
+        "redirect_uri": "https://trusted-calendar.example.com/oauth/callback",
+        "scopes": [
+            "email",
+            "profile",
+            "calendar.read"
+        ],
+        "risk_score": 5,
+        "risk_level": "Medium",
+        "dangerous_scopes": [],
+        "findings": [],
+        "recommendations": []
+    },
+    {
+        "app_name": "Free Productivity Booster",
+        "redirect_uri": "https://evil-redirect.example.com/oauth/callback",
+        "scopes": [
+            "email",
+            "profile",
+            "mail.readwrite",
+            "contacts.read",
+            "offline_access"
+        ],
+        "risk_score": 32,
+        "risk_level": "Critical",
+        "dangerous_scopes": [
+            "mail.readwrite",
+            "contacts.read",
+            "offline_access"
+        ],
+        "findings": [
+            "Dangerous scopes detected: mail.readwrite, contacts.read, offline_access",
+            "Application has email write access combined with persistent offline access.",
+            "Application can read contacts and maintain long-term access.",
+            "Application uses long-lived tokens, increasing risk if tokens are stolen."
+        ],
+        "recommendations": [
+            "Replace mail.readwrite with least-privilege read-only access or revoke it.",
+            "Limit contact access unless strictly required.",
+            "Remove offline_access unless long-term access is required.",
+            "Review dangerous scope combinations and apply least privilege.",
+            "Use short-lived access tokens and token rotation."
         ]
     }
 ]
