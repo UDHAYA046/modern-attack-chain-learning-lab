@@ -8,15 +8,17 @@
 
 ## Problem Statement
 
-A SaaS platform uses OAuth 2.0 for third-party app integrations. An attacker is exploiting overly broad consent grants to exfiltrate user data.
+A SaaS platform uses OAuth 2.0 for third-party application integrations. An attacker is exploiting overly broad consent grants to exfiltrate user data.
 
-This lab focuses on identifying risky OAuth applications by analyzing granted scopes, token characteristics, and permission abuse patterns.
+This lab focuses on understanding how excessive OAuth permissions, dangerous scope combinations, and long-lived tokens can increase organizational risk.
+
+The objective is to analyze OAuth-connected applications and identify risky authorization patterns before they can be abused.
 
 ---
 
 ## Background
 
-Modern SaaS applications frequently integrate with third-party services using OAuth 2.0. While OAuth improves security by eliminating password sharing, excessive permissions and poor authorization practices can create significant security risks.
+Modern SaaS applications frequently integrate with third-party services using OAuth 2.0. While OAuth improves security by eliminating password sharing, excessive permissions and poor authorization practices can introduce significant security risks.
 
 Attackers increasingly abuse OAuth applications through:
 
@@ -36,10 +38,13 @@ Build a defensive OAuth Security Analyzer capable of:
 
 * Enumerating OAuth-connected applications
 * Identifying dangerous or excessive permissions
+* Detecting risky scope combinations
+* Identifying long-lived token exposure
 * Assigning risk scores
 * Classifying applications by risk level
-* Simulating token abuse scenarios
+* Simulating malicious OAuth application scenarios
 * Generating remediation recommendations
+* Producing security assessment reports
 
 ---
 
@@ -54,7 +59,8 @@ After completing this lab, I should be able to:
 * Analyze OAuth-connected applications
 * Apply the Principle of Least Privilege
 * Generate meaningful security recommendations
-* Map OAuth abuse to MITRE ATT&CK techniques
+* Interpret OAuth risk indicators
+* Map OAuth abuse techniques to MITRE ATT&CK
 
 ---
 
@@ -115,14 +121,56 @@ Sensitive Data Exfiltration
 
 ---
 
-## Project Scope
+## Simulated Malicious OAuth Scenario
 
-This project analyzes OAuth application metadata and assigned permissions to identify potential security risks.
+```text
+User
+↓
+Malicious OAuth Application
+↓
+Requests Excessive Scopes
+↓
+User Accepts Consent Screen
+↓
+Access Token Issued
+↓
+Persistent Access via offline_access
+↓
+Unauthorized Data Access
+```
+
+This repository does not perform real token theft or attack live OAuth providers.
+
+The scenario above demonstrates how attackers can abuse excessive permissions and persistent tokens when users authorize a malicious application.
+
+---
+
+## Implemented Features
+
+The final version of the OAuth Security Analyzer includes:
+
+* OAuth application enumeration
+* Scope risk analysis
+* Dangerous scope detection
+* Dangerous scope combination detection
+* Long-lived token risk detection
+* Risk scoring and classification
+* Security recommendation engine
+* JSON report generation
+* CSV summary generation
+* HTML dashboard generation
+* Simulated trusted OAuth application
+* Simulated malicious OAuth application
+
+---
+
+## Project Scope
 
 The analyzer evaluates:
 
 * Application Name
 * Granted Scopes
+* Redirect URI
 * Token Type
 * Token Expiry
 * Last Usage Information
@@ -131,14 +179,14 @@ The analyzer then:
 
 * Calculates a risk score
 * Identifies dangerous scopes
+* Detects risky scope combinations
+* Identifies long-lived token risks
 * Classifies application risk
-* Provides remediation guidance
+* Generates security recommendations
 
 ---
 
 ## Example Dangerous Scopes
-
-The following scopes are considered higher risk because they provide access to sensitive resources or enable long-term access.
 
 ### Email Access
 
@@ -168,6 +216,30 @@ offline_access
 
 ---
 
+## Dangerous Scope Combinations
+
+The analyzer identifies dangerous permission combinations including:
+
+```text
+mail.readwrite + offline_access
+```
+
+Email modification combined with persistent access.
+
+```text
+contacts.read + offline_access
+```
+
+Long-term access to organizational contact information.
+
+```text
+files.readwrite + offline_access
+```
+
+Persistent modification of cloud-hosted files.
+
+---
+
 ## Risk Classification Model
 
 | Risk Level | Description                                   |
@@ -179,87 +251,92 @@ offline_access
 
 ---
 
-## Example Input
-
-```json
-{
-  "app_name": "Productivity Assistant",
-  "scopes": [
-    "email",
-    "profile",
-    "mail.readwrite",
-    "offline_access"
-  ],
-  "token_type": "Bearer",
-  "token_expiry": "long-lived",
-  "last_used": "2026-06-10"
-}
-```
-
----
-
-## Example Output
-
-```json
-{
-  "app_name": "Productivity Assistant",
-  "risk_score": 16,
-  "risk_level": "Critical",
-  "dangerous_scopes": [
-    "mail.readwrite",
-    "offline_access"
-  ],
-  "recommendations": [
-    "Revoke unnecessary OAuth permissions",
-    "Remove offline_access unless required",
-    "Replace mail.readwrite with least-privilege read-only scopes"
-  ]
-}
-```
-
----
-
-## Planned Architecture
+## Architecture
 
 ```text
 OAuth Application Dataset
             │
             ▼
-     Scope Analyzer
+      Scope Analyzer
             │
             ▼
-      Risk Engine
+ Dangerous Scope Detector
+            │
+            ▼
+ Risk Scoring Engine
             │
             ▼
  Recommendation Engine
             │
             ▼
-      Security Report
+ ┌───────────────────────┐
+ │ JSON Report           │
+ │ CSV Summary           │
+ │ HTML Dashboard        │
+ └───────────────────────┘
 ```
 
 ---
 
-## Planned Features
+## Dataset Components
 
-### Phase 1
+### Standard OAuth Applications
 
-* OAuth Application Dataset
-* Scope Analysis
-* Risk Scoring
-* JSON Report Generation
+```text
+oauth_apps.json
+```
 
-### Phase 2
+Contains multiple simulated OAuth-connected applications with varying permission levels.
 
-* Dashboard Visualization
-* CSV Import Support
-* Risk Trend Analysis
-* Additional Scope Rules
+### Trusted OAuth Application
 
-### Phase 3
+```text
+good_app.json
+```
 
-* JWT Inspection
-* Advanced Detection Logic
-* OAuth Audit Log Analysis
+Represents a legitimate OAuth integration using limited permissions.
+
+### Malicious OAuth Application
+
+```text
+evil_app.json
+```
+
+Represents a simulated OAuth application requesting excessive permissions and long-term access.
+
+---
+
+## Generated Outputs
+
+### JSON Security Report
+
+```text
+oauth_risk_report.json
+```
+
+Detailed application-by-application risk assessment.
+
+### CSV Summary
+
+```text
+risk_summary.csv
+```
+
+Tabular risk summary for reporting and analysis.
+
+### HTML Dashboard
+
+```text
+oauth_risk_dashboard.html
+```
+
+Visual dashboard displaying:
+
+* Risk Scores
+* Risk Levels
+* Dangerous Scopes
+* Findings
+* Recommendations
 
 ---
 
@@ -270,13 +347,19 @@ OAuth Application Dataset
 │
 ├── README.md
 ├── notes.md
-├── src/
-│   └── oauth_scope_analyzer.py
 │
 ├── sample-data/
-│   └── oauth_apps.json
+│   ├── oauth_apps.json
+│   ├── good_app.json
+│   └── evil_app.json
 │
-└── screenshots/
+├── reports/
+│   ├── oauth_risk_report.json
+│   ├── risk_summary.csv
+│   └── oauth_risk_dashboard.html
+│
+└── src/
+    └── oauth_scope_analyzer.py
 ```
 
 ---
@@ -307,16 +390,23 @@ All examples, datasets, and demonstrations are simulated.
 
 ---
 
-## Expected Outcome
+## Learning Outcome
 
-Upon completion, this lab will demonstrate how defenders can identify risky OAuth applications, detect excessive permissions, understand token abuse scenarios, and apply least-privilege principles to reduce OAuth-related security risks.
+Upon completion, this lab demonstrates:
+
+* Identification of risky OAuth permissions
+* Detection of dangerous scope combinations
+* Analysis of long-lived token exposure
+* Comparison of trusted and malicious OAuth applications
+* Automated generation of security recommendations
+* Generation of JSON, CSV, and HTML security reports
 
 ---
 
 ## References
 
 * OAuth 2.0 Framework
+* OAuth 2.0 Security Best Current Practices
+* OWASP OAuth Security Guidelines
 * JWT (JSON Web Token)
 * MITRE ATT&CK
-* OWASP OAuth Security Guidelines
-* OAuth 2.0 Security Best Current Practices
