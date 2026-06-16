@@ -1,0 +1,55 @@
+[
+    {
+        "app_name": "Profile Viewer",
+        "risk_score": 2,
+        "risk_level": "Low",
+        "dangerous_scopes": [],
+        "recommendations": []
+    },
+    {
+        "app_name": "Calendar Helper",
+        "risk_score": 5,
+        "risk_level": "Medium",
+        "dangerous_scopes": [],
+        "recommendations": []
+    },
+    {
+        "app_name": "Contact Sync Tool",
+        "risk_score": 5,
+        "risk_level": "Medium",
+        "dangerous_scopes": [
+            "contacts.read"
+        ],
+        "recommendations": [
+            "Limit contact access unless strictly required."
+        ]
+    },
+    {
+        "app_name": "Productivity Assistant",
+        "risk_score": 16,
+        "risk_level": "Critical",
+        "dangerous_scopes": [
+            "mail.readwrite",
+            "offline_access"
+        ],
+        "recommendations": [
+            "Replace mail.readwrite with least-privilege read-only access or revoke it.",
+            "Remove offline_access unless long-term access is required."
+        ]
+    },
+    {
+        "app_name": "Unknown Mail Utility",
+        "risk_score": 14,
+        "risk_level": "Critical",
+        "dangerous_scopes": [
+            "mail.read",
+            "contacts.read",
+            "offline_access"
+        ],
+        "recommendations": [
+            "Review whether email read access is required.",
+            "Limit contact access unless strictly required.",
+            "Remove offline_access unless long-term access is required."
+        ]
+    }
+]
