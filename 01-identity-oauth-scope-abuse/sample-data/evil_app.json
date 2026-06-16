@@ -1,0 +1,8 @@
+{
+  "app_name": "Free Productivity Booster",
+  "redirect_uri": "https://evil-redirect.example.com/oauth/callback",
+  "scopes": ["email", "profile", "mail.readwrite", "contacts.read", "offline_access"],
+  "token_type": "Bearer",
+  "token_expiry": "long-lived",
+  "last_used": "2026-06-10"
+}
