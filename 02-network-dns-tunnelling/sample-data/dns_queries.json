@@ -1,0 +1,42 @@
+[
+{
+"domain":"google.com",
+"timestamp":"2026-06-18 10:00:00"
+},
+{
+"domain":"mail.google.com",
+"timestamp":"2026-06-18 10:00:03"
+},
+{
+"domain":"chunk1.chunk2.chunk3.attacker.com",
+"timestamp":"2026-06-18 10:00:05"
+},
+{
+"domain":"YWRtaW4xMjM=.attacker.com",
+"timestamp":"2026-06-18 10:00:06"
+},
+{
+"domain":"aj92ks92jd92ks82.attacker.com",
+"timestamp":"2026-06-18 10:00:07"
+},
+{
+"domain":"chunk4.chunk5.chunk6.attacker.com",
+"timestamp":"2026-06-18 10:00:08"
+},
+{
+"domain":"cloudfront.net",
+"timestamp":"2026-06-18 10:00:09"
+},
+{
+"domain":"ec2-54-100.compute.amazonaws.com",
+"timestamp":"2026-06-18 10:00:10"
+},
+{
+"domain":"chunk7.chunk8.chunk9.attacker.com",
+"timestamp":"2026-06-18 10:00:11"
+},
+{
+"domain":"aj83ks92kd92j3k29d.attacker.com",
+"timestamp":"2026-06-18 10:00:12"
+}
+]
