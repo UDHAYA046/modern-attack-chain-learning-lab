@@ -1,0 +1,11 @@
+Domain,Timestamp,Query Length,Entropy,Subdomain Depth,Risk Score,Risk Level,Findings
+google.com,18-06-2026 10:00,10,2.65,0,0,Low,Known legitimate domain or cloud service.
+mail.google.com,18-06-2026 10:00,15,3.06,1,0,Low,Known legitimate domain or cloud service.
+chunk1.chunk2.chunk3.attacker.com,18-06-2026 10:00,33,3.65,3,10,High,"Moderately long DNS query. | Moderate entropy detected. | Moderate subdomain depth detected. | Suspicious keywords detected: attacker, chunk"
+YWRtaW4xMjM=.attacker.com,18-06-2026 10:00,25,3.94,1,6,Medium,Moderate entropy detected. | Suspicious keywords detected: attacker
+aj92ks92jd92ks82.attacker.com,18-06-2026 10:00,29,3.75,1,6,Medium,Moderate entropy detected. | Suspicious keywords detected: attacker
+chunk4.chunk5.chunk6.attacker.com,18-06-2026 10:00,33,3.65,3,10,High,"Moderately long DNS query. | Moderate entropy detected. | Moderate subdomain depth detected. | Suspicious keywords detected: attacker, chunk"
+cloudfront.net,18-06-2026 10:00,14,3.38,0,0,Low,Known legitimate domain or cloud service.
+ec2-54-100.compute.amazonaws.com,18-06-2026 10:00,32,4.07,2,6,Medium,Known legitimate domain or cloud service. | Moderately long DNS query. | Moderate entropy detected. | Moderate subdomain depth detected.
+chunk7.chunk8.chunk9.attacker.com,18-06-2026 10:00,33,3.65,3,10,High,"Moderately long DNS query. | Moderate entropy detected. | Moderate subdomain depth detected. | Suspicious keywords detected: attacker, chunk"
+aj83ks92kd92j3k29d.attacker.com,18-06-2026 10:00,31,3.85,1,8,Medium,Moderately long DNS query. | Moderate entropy detected. | Suspicious keywords detected: attacker

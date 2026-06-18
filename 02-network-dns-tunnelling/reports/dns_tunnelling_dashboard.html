@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DNS Tunnelling Detection Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f7f9fc;
+        }
+        h1 {
+            color: #111827;
+        }
+        p {
+            font-size: 16px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #111827;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>DNS Tunnelling Detection Dashboard</h1>
+    <p>This report analyzes DNS queries for tunnelling indicators such as query length, entropy, subdomain depth, suspicious keywords, and abnormal domain structures.</p>
+
+    <table>
+        <tr>
+            <th>Domain</th>
+            <th>Length</th>
+            <th>Entropy</th>
+            <th>Depth</th>
+            <th>Risk Score</th>
+            <th>Risk Level</th>
+            <th>Findings</th>
+            <th>Recommendations</th>
+        </tr>
+        
+        <tr>
+            <td>google.com</td>
+            <td>10</td>
+            <td>2.65</td>
+            <td>0</td>
+            <td>0</td>
+            <td>Low</td>
+            <td>Known legitimate domain or cloud service.</td>
+            <td>No immediate action required, but monitor if frequency increases.</td>
+        </tr>
+        
+        <tr>
+            <td>mail.google.com</td>
+            <td>15</td>
+            <td>3.06</td>
+            <td>1</td>
+            <td>0</td>
+            <td>Low</td>
+            <td>Known legitimate domain or cloud service.</td>
+            <td>No immediate action required, but monitor if frequency increases.</td>
+        </tr>
+        
+        <tr>
+            <td>chunk1.chunk2.chunk3.attacker.com</td>
+            <td>33</td>
+            <td>3.65</td>
+            <td>3</td>
+            <td>10</td>
+            <td>High</td>
+            <td>Moderately long DNS query.<br>Moderate entropy detected.<br>Moderate subdomain depth detected.<br>Suspicious keywords detected: attacker, chunk</td>
+            <td>Investigate domain for possible exfiltration or attacker-controlled infrastructure.</td>
+        </tr>
+        
+        <tr>
+            <td>YWRtaW4xMjM=.attacker.com</td>
+            <td>25</td>
+            <td>3.94</td>
+            <td>1</td>
+            <td>6</td>
+            <td>Medium</td>
+            <td>Moderate entropy detected.<br>Suspicious keywords detected: attacker</td>
+            <td>Investigate domain for possible exfiltration or attacker-controlled infrastructure.</td>
+        </tr>
+        
+        <tr>
+            <td>aj92ks92jd92ks82.attacker.com</td>
+            <td>29</td>
+            <td>3.75</td>
+            <td>1</td>
+            <td>6</td>
+            <td>Medium</td>
+            <td>Moderate entropy detected.<br>Suspicious keywords detected: attacker</td>
+            <td>Investigate domain for possible exfiltration or attacker-controlled infrastructure.</td>
+        </tr>
+        
+        <tr>
+            <td>chunk4.chunk5.chunk6.attacker.com</td>
+            <td>33</td>
+            <td>3.65</td>
+            <td>3</td>
+            <td>10</td>
+            <td>High</td>
+            <td>Moderately long DNS query.<br>Moderate entropy detected.<br>Moderate subdomain depth detected.<br>Suspicious keywords detected: attacker, chunk</td>
+            <td>Investigate domain for possible exfiltration or attacker-controlled infrastructure.</td>
+        </tr>
+        
+        <tr>
+            <td>cloudfront.net</td>
+            <td>14</td>
+            <td>3.38</td>
+            <td>0</td>
+            <td>0</td>
+            <td>Low</td>
+            <td>Known legitimate domain or cloud service.</td>
+            <td>No immediate action required, but monitor if frequency increases.</td>
+        </tr>
+        
+        <tr>
+            <td>ec2-54-100.compute.amazonaws.com</td>
+            <td>32</td>
+            <td>4.07</td>
+            <td>2</td>
+            <td>6</td>
+            <td>Medium</td>
+            <td>Known legitimate domain or cloud service.<br>Moderately long DNS query.<br>Moderate entropy detected.<br>Moderate subdomain depth detected.</td>
+            <td>No immediate action required, but monitor if frequency increases.</td>
+        </tr>
+        
+        <tr>
+            <td>chunk7.chunk8.chunk9.attacker.com</td>
+            <td>33</td>
+            <td>3.65</td>
+            <td>3</td>
+            <td>10</td>
+            <td>High</td>
+            <td>Moderately long DNS query.<br>Moderate entropy detected.<br>Moderate subdomain depth detected.<br>Suspicious keywords detected: attacker, chunk</td>
+            <td>Investigate domain for possible exfiltration or attacker-controlled infrastructure.</td>
+        </tr>
+        
+        <tr>
+            <td>aj83ks92kd92j3k29d.attacker.com</td>
+            <td>31</td>
+            <td>3.85</td>
+            <td>1</td>
+            <td>8</td>
+            <td>Medium</td>
+            <td>Moderately long DNS query.<br>Moderate entropy detected.<br>Suspicious keywords detected: attacker</td>
+            <td>Investigate domain for possible exfiltration or attacker-controlled infrastructure.</td>
+        </tr>
+        
+    </table>
+</body>
+</html>

@@ -1,0 +1,168 @@
+[
+    {
+        "domain": "google.com",
+        "timestamp": "2026-06-18 10:00:00",
+        "query_length": 10,
+        "entropy": 2.65,
+        "subdomain_depth": 0,
+        "risk_score": 0,
+        "risk_level": "Low",
+        "findings": [
+            "Known legitimate domain or cloud service."
+        ],
+        "recommendations": [
+            "No immediate action required, but monitor if frequency increases."
+        ]
+    },
+    {
+        "domain": "mail.google.com",
+        "timestamp": "2026-06-18 10:00:03",
+        "query_length": 15,
+        "entropy": 3.06,
+        "subdomain_depth": 1,
+        "risk_score": 0,
+        "risk_level": "Low",
+        "findings": [
+            "Known legitimate domain or cloud service."
+        ],
+        "recommendations": [
+            "No immediate action required, but monitor if frequency increases."
+        ]
+    },
+    {
+        "domain": "chunk1.chunk2.chunk3.attacker.com",
+        "timestamp": "2026-06-18 10:00:05",
+        "query_length": 33,
+        "entropy": 3.65,
+        "subdomain_depth": 3,
+        "risk_score": 10,
+        "risk_level": "High",
+        "findings": [
+            "Moderately long DNS query.",
+            "Moderate entropy detected.",
+            "Moderate subdomain depth detected.",
+            "Suspicious keywords detected: attacker, chunk"
+        ],
+        "recommendations": [
+            "Investigate domain for possible exfiltration or attacker-controlled infrastructure."
+        ]
+    },
+    {
+        "domain": "YWRtaW4xMjM=.attacker.com",
+        "timestamp": "2026-06-18 10:00:06",
+        "query_length": 25,
+        "entropy": 3.94,
+        "subdomain_depth": 1,
+        "risk_score": 6,
+        "risk_level": "Medium",
+        "findings": [
+            "Moderate entropy detected.",
+            "Suspicious keywords detected: attacker"
+        ],
+        "recommendations": [
+            "Investigate domain for possible exfiltration or attacker-controlled infrastructure."
+        ]
+    },
+    {
+        "domain": "aj92ks92jd92ks82.attacker.com",
+        "timestamp": "2026-06-18 10:00:07",
+        "query_length": 29,
+        "entropy": 3.75,
+        "subdomain_depth": 1,
+        "risk_score": 6,
+        "risk_level": "Medium",
+        "findings": [
+            "Moderate entropy detected.",
+            "Suspicious keywords detected: attacker"
+        ],
+        "recommendations": [
+            "Investigate domain for possible exfiltration or attacker-controlled infrastructure."
+        ]
+    },
+    {
+        "domain": "chunk4.chunk5.chunk6.attacker.com",
+        "timestamp": "2026-06-18 10:00:08",
+        "query_length": 33,
+        "entropy": 3.65,
+        "subdomain_depth": 3,
+        "risk_score": 10,
+        "risk_level": "High",
+        "findings": [
+            "Moderately long DNS query.",
+            "Moderate entropy detected.",
+            "Moderate subdomain depth detected.",
+            "Suspicious keywords detected: attacker, chunk"
+        ],
+        "recommendations": [
+            "Investigate domain for possible exfiltration or attacker-controlled infrastructure."
+        ]
+    },
+    {
+        "domain": "cloudfront.net",
+        "timestamp": "2026-06-18 10:00:09",
+        "query_length": 14,
+        "entropy": 3.38,
+        "subdomain_depth": 0,
+        "risk_score": 0,
+        "risk_level": "Low",
+        "findings": [
+            "Known legitimate domain or cloud service."
+        ],
+        "recommendations": [
+            "No immediate action required, but monitor if frequency increases."
+        ]
+    },
+    {
+        "domain": "ec2-54-100.compute.amazonaws.com",
+        "timestamp": "2026-06-18 10:00:10",
+        "query_length": 32,
+        "entropy": 4.07,
+        "subdomain_depth": 2,
+        "risk_score": 6,
+        "risk_level": "Medium",
+        "findings": [
+            "Known legitimate domain or cloud service.",
+            "Moderately long DNS query.",
+            "Moderate entropy detected.",
+            "Moderate subdomain depth detected."
+        ],
+        "recommendations": [
+            "No immediate action required, but monitor if frequency increases."
+        ]
+    },
+    {
+        "domain": "chunk7.chunk8.chunk9.attacker.com",
+        "timestamp": "2026-06-18 10:00:11",
+        "query_length": 33,
+        "entropy": 3.65,
+        "subdomain_depth": 3,
+        "risk_score": 10,
+        "risk_level": "High",
+        "findings": [
+            "Moderately long DNS query.",
+            "Moderate entropy detected.",
+            "Moderate subdomain depth detected.",
+            "Suspicious keywords detected: attacker, chunk"
+        ],
+        "recommendations": [
+            "Investigate domain for possible exfiltration or attacker-controlled infrastructure."
+        ]
+    },
+    {
+        "domain": "aj83ks92kd92j3k29d.attacker.com",
+        "timestamp": "2026-06-18 10:00:12",
+        "query_length": 31,
+        "entropy": 3.85,
+        "subdomain_depth": 1,
+        "risk_score": 8,
+        "risk_level": "Medium",
+        "findings": [
+            "Moderately long DNS query.",
+            "Moderate entropy detected.",
+            "Suspicious keywords detected: attacker"
+        ],
+        "recommendations": [
+            "Investigate domain for possible exfiltration or attacker-controlled infrastructure."
+        ]
+    }
+]
