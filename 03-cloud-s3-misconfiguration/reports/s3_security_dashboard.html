@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>S3 Misconfiguration Security Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f7f9fc;
+        }
+        h1 {
+            color: #111827;
+        }
+        p {
+            font-size: 16px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #111827;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>S3 Bucket Misconfiguration Security Dashboard</h1>
+    <p>This dashboard analyzes simulated S3 bucket configurations for public access, missing encryption, disabled versioning, website hosting exposure, and sensitive file risks.</p>
+
+    <table>
+        <tr>
+            <th>Bucket</th>
+            <th>Risk Score</th>
+            <th>Severity</th>
+            <th>Public ACL</th>
+            <th>Public Policy</th>
+            <th>Encryption</th>
+            <th>Versioning</th>
+            <th>Website</th>
+            <th>Sensitive Files</th>
+            <th>Findings</th>
+            <th>Recommendations</th>
+        </tr>
+        
+        <tr>
+            <td>secure-logs-bucket</td>
+            <td>0</td>
+            <td>Low</td>
+            <td>False</td>
+            <td>False</td>
+            <td>True</td>
+            <td>True</td>
+            <td>False</td>
+            <td>None</td>
+            <td>No major S3 misconfiguration detected.</td>
+            <td>Continue monitoring bucket configuration.</td>
+        </tr>
+        
+        <tr>
+            <td>finance-backups</td>
+            <td>24</td>
+            <td>Critical</td>
+            <td>False</td>
+            <td>False</td>
+            <td>False</td>
+            <td>False</td>
+            <td>False</td>
+            <td>backup.zip<br>database.sql</td>
+            <td>Server-side encryption is not enabled.<br>Versioning is disabled.<br>Sensitive files detected: backup.zip, database.sql</td>
+            <td>Enable SSE-S3 or SSE-KMS encryption.<br>Enable bucket versioning to protect against deletion and ransomware.<br>Remove, encrypt, or restrict access to sensitive files immediately.</td>
+        </tr>
+        
+        <tr>
+            <td>public-website-assets</td>
+            <td>39</td>
+            <td>Critical</td>
+            <td>True</td>
+            <td>True</td>
+            <td>True</td>
+            <td>False</td>
+            <td>True</td>
+            <td>config.json</td>
+            <td>Public ACL detected.<br>Public bucket policy detected.<br>Versioning is disabled.<br>Static website hosting is enabled.<br>Sensitive files detected: config.json</td>
+            <td>Enable S3 Block Public Access and remove public ACL grants.<br>Restrict bucket policy Principal from '*' to trusted identities only.<br>Enable bucket versioning to protect against deletion and ransomware.<br>Review hosted objects and ensure no sensitive files are publicly accessible.<br>Remove, encrypt, or restrict access to sensitive files immediately.</td>
+        </tr>
+        
+        <tr>
+            <td>customer-data-archive</td>
+            <td>39</td>
+            <td>Critical</td>
+            <td>True</td>
+            <td>False</td>
+            <td>False</td>
+            <td>False</td>
+            <td>False</td>
+            <td>customer_data.csv<br>users.csv<br>passwords.txt<br>.env</td>
+            <td>Public ACL detected.<br>Missing bucket policy.<br>Server-side encryption is not enabled.<br>Versioning is disabled.<br>Sensitive files detected: customer_data.csv, users.csv, passwords.txt, .env</td>
+            <td>Enable S3 Block Public Access and remove public ACL grants.<br>Create a least-privilege bucket policy.<br>Enable SSE-S3 or SSE-KMS encryption.<br>Enable bucket versioning to protect against deletion and ransomware.<br>Remove, encrypt, or restrict access to sensitive files immediately.</td>
+        </tr>
+        
+        <tr>
+            <td>company-static-site</td>
+            <td>33</td>
+            <td>Critical</td>
+            <td>False</td>
+            <td>True</td>
+            <td>False</td>
+            <td>True</td>
+            <td>True</td>
+            <td>private.pem<br>secret.txt</td>
+            <td>Public bucket policy detected.<br>Server-side encryption is not enabled.<br>Static website hosting is enabled.<br>Sensitive files detected: private.pem, secret.txt</td>
+            <td>Restrict bucket policy Principal from '*' to trusted identities only.<br>Enable SSE-S3 or SSE-KMS encryption.<br>Review hosted objects and ensure no sensitive files are publicly accessible.<br>Remove, encrypt, or restrict access to sensitive files immediately.</td>
+        </tr>
+        
+    </table>
+</body>
+</html>

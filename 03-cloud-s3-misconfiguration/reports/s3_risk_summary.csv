@@ -1,0 +1,6 @@
+Bucket Name,Risk Score,Severity,Public ACL,Public Policy,Encryption,Versioning,Website Hosting,Sensitive Files,Findings
+secure-logs-bucket,0,Low,FALSE,FALSE,TRUE,TRUE,FALSE,,No major S3 misconfiguration detected.
+finance-backups,24,Critical,FALSE,FALSE,FALSE,FALSE,FALSE,"backup.zip, database.sql","Server-side encryption is not enabled. | Versioning is disabled. | Sensitive files detected: backup.zip, database.sql"
+public-website-assets,39,Critical,TRUE,TRUE,TRUE,FALSE,TRUE,config.json,Public ACL detected. | Public bucket policy detected. | Versioning is disabled. | Static website hosting is enabled. | Sensitive files detected: config.json
+customer-data-archive,39,Critical,TRUE,FALSE,FALSE,FALSE,FALSE,"customer_data.csv, users.csv, passwords.txt, .env","Public ACL detected. | Missing bucket policy. | Server-side encryption is not enabled. | Versioning is disabled. | Sensitive files detected: customer_data.csv, users.csv, passwords.txt, .env"
+company-static-site,33,Critical,FALSE,TRUE,FALSE,TRUE,TRUE,"private.pem, secret.txt","Public bucket policy detected. | Server-side encryption is not enabled. | Static website hosting is enabled. | Sensitive files detected: private.pem, secret.txt"

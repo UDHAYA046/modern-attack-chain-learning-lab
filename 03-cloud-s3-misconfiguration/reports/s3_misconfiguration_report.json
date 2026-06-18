@@ -1,0 +1,157 @@
+[
+    {
+        "bucket_name": "secure-logs-bucket",
+        "risk_score": 0,
+        "severity": "Low",
+        "public_acl": false,
+        "public_bucket_policy": false,
+        "bucket_policy_exists": true,
+        "encryption_enabled": true,
+        "versioning_enabled": true,
+        "website_hosting": false,
+        "sensitive_files": [],
+        "findings": [
+            "No major S3 misconfiguration detected."
+        ],
+        "recommendations": [
+            "Continue monitoring bucket configuration."
+        ],
+        "dry_run_actions": []
+    },
+    {
+        "bucket_name": "finance-backups",
+        "risk_score": 24,
+        "severity": "Critical",
+        "public_acl": false,
+        "public_bucket_policy": false,
+        "bucket_policy_exists": true,
+        "encryption_enabled": false,
+        "versioning_enabled": false,
+        "website_hosting": false,
+        "sensitive_files": [
+            "backup.zip",
+            "database.sql"
+        ],
+        "findings": [
+            "Server-side encryption is not enabled.",
+            "Versioning is disabled.",
+            "Sensitive files detected: backup.zip, database.sql"
+        ],
+        "recommendations": [
+            "Enable SSE-S3 or SSE-KMS encryption.",
+            "Enable bucket versioning to protect against deletion and ransomware.",
+            "Remove, encrypt, or restrict access to sensitive files immediately."
+        ],
+        "dry_run_actions": [
+            "Would enable AES256 server-side encryption.",
+            "Would enable bucket versioning.",
+            "Would quarantine or restrict access to sensitive files."
+        ]
+    },
+    {
+        "bucket_name": "public-website-assets",
+        "risk_score": 39,
+        "severity": "Critical",
+        "public_acl": true,
+        "public_bucket_policy": true,
+        "bucket_policy_exists": true,
+        "encryption_enabled": true,
+        "versioning_enabled": false,
+        "website_hosting": true,
+        "sensitive_files": [
+            "config.json"
+        ],
+        "findings": [
+            "Public ACL detected.",
+            "Public bucket policy detected.",
+            "Versioning is disabled.",
+            "Static website hosting is enabled.",
+            "Sensitive files detected: config.json"
+        ],
+        "recommendations": [
+            "Enable S3 Block Public Access and remove public ACL grants.",
+            "Restrict bucket policy Principal from '*' to trusted identities only.",
+            "Enable bucket versioning to protect against deletion and ransomware.",
+            "Review hosted objects and ensure no sensitive files are publicly accessible.",
+            "Remove, encrypt, or restrict access to sensitive files immediately."
+        ],
+        "dry_run_actions": [
+            "Would remove public ACL permissions and enable Block Public Access.",
+            "Would update bucket policy to remove public Principal access.",
+            "Would enable bucket versioning.",
+            "Would review website hosting configuration.",
+            "Would quarantine or restrict access to sensitive files."
+        ]
+    },
+    {
+        "bucket_name": "customer-data-archive",
+        "risk_score": 39,
+        "severity": "Critical",
+        "public_acl": true,
+        "public_bucket_policy": false,
+        "bucket_policy_exists": false,
+        "encryption_enabled": false,
+        "versioning_enabled": false,
+        "website_hosting": false,
+        "sensitive_files": [
+            "customer_data.csv",
+            "users.csv",
+            "passwords.txt",
+            ".env"
+        ],
+        "findings": [
+            "Public ACL detected.",
+            "Missing bucket policy.",
+            "Server-side encryption is not enabled.",
+            "Versioning is disabled.",
+            "Sensitive files detected: customer_data.csv, users.csv, passwords.txt, .env"
+        ],
+        "recommendations": [
+            "Enable S3 Block Public Access and remove public ACL grants.",
+            "Create a least-privilege bucket policy.",
+            "Enable SSE-S3 or SSE-KMS encryption.",
+            "Enable bucket versioning to protect against deletion and ransomware.",
+            "Remove, encrypt, or restrict access to sensitive files immediately."
+        ],
+        "dry_run_actions": [
+            "Would remove public ACL permissions and enable Block Public Access.",
+            "Would create a least-privilege bucket policy template.",
+            "Would enable AES256 server-side encryption.",
+            "Would enable bucket versioning.",
+            "Would quarantine or restrict access to sensitive files."
+        ]
+    },
+    {
+        "bucket_name": "company-static-site",
+        "risk_score": 33,
+        "severity": "Critical",
+        "public_acl": false,
+        "public_bucket_policy": true,
+        "bucket_policy_exists": true,
+        "encryption_enabled": false,
+        "versioning_enabled": true,
+        "website_hosting": true,
+        "sensitive_files": [
+            "private.pem",
+            "secret.txt"
+        ],
+        "findings": [
+            "Public bucket policy detected.",
+            "Server-side encryption is not enabled.",
+            "Static website hosting is enabled.",
+            "Sensitive files detected: private.pem, secret.txt"
+        ],
+        "recommendations": [
+            "Restrict bucket policy Principal from '*' to trusted identities only.",
+            "Enable SSE-S3 or SSE-KMS encryption.",
+            "Review hosted objects and ensure no sensitive files are publicly accessible.",
+            "Remove, encrypt, or restrict access to sensitive files immediately."
+        ],
+        "dry_run_actions": [
+            "Would update bucket policy to remove public Principal access.",
+            "Would enable AES256 server-side encryption.",
+            "Would review website hosting configuration.",
+            "Would quarantine or restrict access to sensitive files."
+        ]
+    }
+]

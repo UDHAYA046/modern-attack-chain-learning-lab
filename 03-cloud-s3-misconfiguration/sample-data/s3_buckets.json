@@ -1,0 +1,74 @@
+[
+  {
+    "bucket_name": "secure-logs-bucket",
+    "public_acl": false,
+    "public_bucket_policy": false,
+    "bucket_policy_exists": true,
+    "encryption_enabled": true,
+    "versioning_enabled": true,
+    "website_hosting": false,
+    "objects": [
+      "cloudtrail-logs.json",
+      "application.log"
+    ]
+  },
+  {
+    "bucket_name": "finance-backups",
+    "public_acl": false,
+    "public_bucket_policy": false,
+    "bucket_policy_exists": true,
+    "encryption_enabled": false,
+    "versioning_enabled": false,
+    "website_hosting": false,
+    "objects": [
+      "backup.zip",
+      "database.sql",
+      "finance_report.xlsx"
+    ]
+  },
+  {
+    "bucket_name": "public-website-assets",
+    "public_acl": true,
+    "public_bucket_policy": true,
+    "bucket_policy_exists": true,
+    "encryption_enabled": true,
+    "versioning_enabled": false,
+    "website_hosting": true,
+    "objects": [
+      "index.html",
+      "style.css",
+      "logo.png",
+      "config.json"
+    ]
+  },
+  {
+    "bucket_name": "customer-data-archive",
+    "public_acl": true,
+    "public_bucket_policy": false,
+    "bucket_policy_exists": false,
+    "encryption_enabled": false,
+    "versioning_enabled": false,
+    "website_hosting": false,
+    "objects": [
+      "customer_data.csv",
+      "users.csv",
+      "passwords.txt",
+      ".env"
+    ]
+  },
+  {
+    "bucket_name": "company-static-site",
+    "public_acl": false,
+    "public_bucket_policy": true,
+    "bucket_policy_exists": true,
+    "encryption_enabled": false,
+    "versioning_enabled": true,
+    "website_hosting": true,
+    "objects": [
+      "index.html",
+      "about.html",
+      "private.pem",
+      "secret.txt"
+    ]
+  }
+]
