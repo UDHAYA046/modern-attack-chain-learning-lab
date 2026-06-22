@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JWT Attack Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f7f9fc;
+        }
+        h1 {
+            color: #111827;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #111827;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>JWT Authentication Bypass Attack Dashboard</h1>
+    <p>This dashboard documents local-only JWT attacks against an intentionally vulnerable Flask API.</p>
+
+    <table>
+        <tr>
+            <th>Attack</th>
+            <th>Vulnerability</th>
+            <th>Status Code</th>
+            <th>Result</th>
+            <th>Severity</th>
+            <th>Defense</th>
+        </tr>
+        
+        <tr>
+            <td>None Algorithm Attack</td>
+            <td>Server accepts unsigned JWTs with alg:none.</td>
+            <td>200</td>
+            <td>Admin access obtained</td>
+            <td>Critical</td>
+            <td>Reject alg:none and enforce algorithm pinning.</td>
+        </tr>
+        
+        <tr>
+            <td>Claim Forgery with Weak HS256 Secret</td>
+            <td>Weak HS256 secret allows attacker to forge admin claims.</td>
+            <td>200</td>
+            <td>Admin access obtained</td>
+            <td>High</td>
+            <td>Use strong high-entropy secrets or RS256.</td>
+        </tr>
+        
+        <tr>
+            <td>RS256 to HS256 Algorithm Confusion</td>
+            <td>Server accepts HS256 token signed using public key as HMAC secret.</td>
+            <td>200</td>
+            <td>Admin access obtained</td>
+            <td>Critical</td>
+            <td>Pin RS256 and never trust token-supplied algorithms.</td>
+        </tr>
+        
+    </table>
+</body>
+</html>

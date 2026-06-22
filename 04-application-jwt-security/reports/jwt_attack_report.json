@@ -1,0 +1,65 @@
+[
+    {
+        "attack_name": "None Algorithm Attack",
+        "vulnerability": "Server accepts unsigned JWTs with alg:none.",
+        "status_code": 200,
+        "result": "Admin access obtained",
+        "response": {
+            "message": "Admin access granted",
+            "user": {
+                "aud": "lab4-users",
+                "exp": 1782151275,
+                "iat": 1782150375,
+                "iss": "lab4-vulnerable-api",
+                "nbf": 1782150375,
+                "role": "admin",
+                "username": "attacker"
+            }
+        },
+        "severity": "Critical",
+        "defense": "Reject alg:none and enforce algorithm pinning.",
+        "token_preview": "eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJ1c2VybmFtZSI6ImF0dGFja2VyIiwicm9sZSI6ImFk..."
+    },
+    {
+        "attack_name": "Claim Forgery with Weak HS256 Secret",
+        "vulnerability": "Weak HS256 secret allows attacker to forge admin claims.",
+        "status_code": 200,
+        "result": "Admin access obtained",
+        "response": {
+            "message": "Admin access granted",
+            "user": {
+                "aud": "lab4-users",
+                "exp": 1782151275,
+                "iat": 1782150375,
+                "iss": "lab4-vulnerable-api",
+                "nbf": 1782150375,
+                "role": "admin",
+                "username": "attacker"
+            }
+        },
+        "severity": "High",
+        "defense": "Use strong high-entropy secrets or RS256.",
+        "token_preview": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImF0dGFja2VyIiwicm9sZSI6ImF..."
+    },
+    {
+        "attack_name": "RS256 to HS256 Algorithm Confusion",
+        "vulnerability": "Server accepts HS256 token signed using public key as HMAC secret.",
+        "status_code": 200,
+        "result": "Admin access obtained",
+        "response": {
+            "message": "Admin access granted",
+            "user": {
+                "aud": "lab4-users",
+                "exp": 1782151275,
+                "iat": 1782150375,
+                "iss": "lab4-vulnerable-api",
+                "nbf": 1782150375,
+                "role": "admin",
+                "username": "attacker"
+            }
+        },
+        "severity": "Critical",
+        "defense": "Pin RS256 and never trust token-supplied algorithms.",
+        "token_preview": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImF0dGFja2VyIiwicm9sZSI6ImF..."
+    }
+]
