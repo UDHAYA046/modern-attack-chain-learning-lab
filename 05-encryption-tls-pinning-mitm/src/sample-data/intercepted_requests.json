@@ -1,0 +1,51 @@
+[
+    {
+        "timestamp": "2026-06-23 10:00:00",
+        "method": "GET",
+        "url": "https://example.com/api/status",
+        "host": "example.com",
+        "path": "/api/status",
+        "request_headers": {
+            "User-Agent": "HTTP Toolkit Demo App",
+            "Accept": "application/json"
+        },
+        "status_code": 200,
+        "response_headers": {
+            "content-type": "application/json"
+        },
+        "content_type": "application/json",
+        "response_size_bytes": 128
+    },
+    {
+        "timestamp": "2026-06-23 10:00:05",
+        "method": "POST",
+        "url": "https://example.com/api/login",
+        "host": "example.com",
+        "path": "/api/login",
+        "request_headers": {
+            "Content-Type": "application/json"
+        },
+        "status_code": 200,
+        "response_headers": {
+            "content-type": "application/json"
+        },
+        "content_type": "application/json",
+        "response_size_bytes": 256
+    },
+    {
+        "timestamp": "2026-06-23 10:00:10",
+        "method": "GET",
+        "url": "https://pinned.badssl.com/",
+        "host": "pinned.badssl.com",
+        "path": "/",
+        "request_headers": {
+            "User-Agent": "Pinned Certificate Demo"
+        },
+        "status_code": 495,
+        "response_headers": {
+            "content-type": "text/plain"
+        },
+        "content_type": "text/plain",
+        "response_size_bytes": 64
+    }
+]

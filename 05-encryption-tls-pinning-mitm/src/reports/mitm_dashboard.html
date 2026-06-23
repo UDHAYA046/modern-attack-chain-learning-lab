@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TLS MitM Traffic Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f7f9fc;
+        }
+        h1 {
+            color: #111827;
+        }
+        .summary {
+            background: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            margin-bottom: 25px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #111827;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>TLS MitM Traffic Dashboard</h1>
+
+    <p>This dashboard summarizes HTTPS traffic captured through mitmproxy in a controlled local lab environment.</p>
+
+    <div class="summary">
+        <h2>Summary</h2>
+        <p><b>Total Requests:</b> 3</p>
+        <p><b>Methods:</b> {'GET': 2, 'POST': 1}</p>
+        <p><b>Status Codes:</b> {'200': 2, '495': 1}</p>
+        <p><b>Hosts:</b> {'example.com': 2, 'pinned.badssl.com': 1}</p>
+    </div>
+
+    <table>
+        <tr>
+            <th>Timestamp</th>
+            <th>Method</th>
+            <th>Host</th>
+            <th>Path</th>
+            <th>Status Code</th>
+            <th>Status Category</th>
+            <th>Content Type</th>
+            <th>Size Bytes</th>
+        </tr>
+        
+        <tr>
+            <td>2026-06-23 10:00:00</td>
+            <td>GET</td>
+            <td>example.com</td>
+            <td>/api/status</td>
+            <td>200</td>
+            <td>Success</td>
+            <td>application/json</td>
+            <td>128</td>
+        </tr>
+        
+        <tr>
+            <td>2026-06-23 10:00:05</td>
+            <td>POST</td>
+            <td>example.com</td>
+            <td>/api/login</td>
+            <td>200</td>
+            <td>Success</td>
+            <td>application/json</td>
+            <td>256</td>
+        </tr>
+        
+        <tr>
+            <td>2026-06-23 10:00:10</td>
+            <td>GET</td>
+            <td>pinned.badssl.com</td>
+            <td>/</td>
+            <td>495</td>
+            <td>Client Error</td>
+            <td>text/plain</td>
+            <td>64</td>
+        </tr>
+        
+    </table>
+</body>
+</html>

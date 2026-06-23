@@ -1,0 +1,53 @@
+{
+    "lab": "TLS Certificate Pinning Defensive Validation",
+    "pinning_model": {
+        "algorithm": "SHA256",
+        "pinning_type": "SPKI / Public Key Pinning",
+        "primary_pin": "sha256/36d8c74d449f38cc4ef3f7344d90d1c5872f67ec7582fb541ae7daff983f7050",
+        "backup_pin": "sha256/83f19d81d856847c81a572192d18f278b01c0490a9ed37c25f5443d9b947e978",
+        "fail_closed": true
+    },
+    "rotation_support": {
+        "rotation_model": "Backup pin becomes primary, new backup pin is added.",
+        "new_primary_pin": "sha256/83f19d81d856847c81a572192d18f278b01c0490a9ed37c25f5443d9b947e978",
+        "new_backup_pin": "sha256/20af99cef7dc6b0b5fd0ce3c3fd39f51a93caac62a7736fbb7a572e6699ffe83"
+    },
+    "validation_results": [
+        {
+            "certificate_name": "Production Certificate",
+            "received_pin": "sha256/36d8c74d449f38cc4ef3f7344d90d1c5872f67ec7582fb541ae7daff983f7050",
+            "expected_result": "Allowed",
+            "actual_result": "Allowed",
+            "matched_pin": "Primary Pin",
+            "reason": "Certificate public key matches the primary trusted pin.",
+            "security_decision": "PASS"
+        },
+        {
+            "certificate_name": "Backup Rotation Certificate",
+            "received_pin": "sha256/83f19d81d856847c81a572192d18f278b01c0490a9ed37c25f5443d9b947e978",
+            "expected_result": "Allowed",
+            "actual_result": "Allowed",
+            "matched_pin": "Backup Pin",
+            "reason": "Certificate public key matches the backup rotation pin.",
+            "security_decision": "PASS"
+        },
+        {
+            "certificate_name": "mitmproxy Generated Certificate",
+            "received_pin": "sha256/154cd83d6e3a88cf44cd8a3b065b7d77c37e9567f48354339810bd345728e5e3",
+            "expected_result": "Blocked",
+            "actual_result": "Blocked",
+            "matched_pin": "No Match",
+            "reason": "Certificate public key does not match trusted primary or backup pins.",
+            "security_decision": "PASS"
+        },
+        {
+            "certificate_name": "Unknown Rogue Certificate",
+            "received_pin": "sha256/ff6036651ce953f311ea7344a3f212db852a406aa86d044f0a269d179e0757db",
+            "expected_result": "Blocked",
+            "actual_result": "Blocked",
+            "matched_pin": "No Match",
+            "reason": "Certificate public key does not match trusted primary or backup pins.",
+            "security_decision": "PASS"
+        }
+    ]
+}
